@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Vector3 velocity;
     float acceleration = 40;
     float deceleration => acceleration;
 
@@ -15,23 +14,10 @@ public class Player : MonoBehaviour
     public float RollSpeed = 90;
     public float YawSpeed = 60;
 
-    public GameObject presentPrefab;
-    float presentDropShiftDistance = 1;
-
-    float? timeSinceLastPresent = null;
-    float timeBetweenPresents = 1.0f;
-    bool wantsToDropPresent = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        var velocity = GetComponent<Velocity>().velocity;
+        if (Input.GetKey(KeyCode.W))
         {
             // Accelerate
             velocity += Vector3.forward * acceleration * Time.deltaTime;
@@ -43,6 +29,8 @@ public class Player : MonoBehaviour
         }
 
         velocity.z = Mathf.Clamp(velocity.z, MinSpeed, MaxSpeed);
+
+        GetComponent<Velocity>().velocity = velocity;
 
         var rotation = Quaternion.identity;
 
@@ -76,35 +64,5 @@ public class Player : MonoBehaviour
         }
 
         transform.rotation = transform.rotation * rotation;
-        transform.position += transform.rotation * velocity * Time.deltaTime;
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            wantsToDropPresent = true;
-        }
-
-        timeSinceLastPresent += Time.deltaTime;
-
-        if (wantsToDropPresent && (timeSinceLastPresent == null || timeSinceLastPresent > timeBetweenPresents))
-        {
-            DropPresent();
-            wantsToDropPresent = false;
-            timeSinceLastPresent = 0.0f;
-        }
-    }
-
-    private void DropPresent()
-    {
-        if(presentPrefab != null)
-        {
-            var present = Instantiate(presentPrefab);
-            present.transform.position = transform.position + -transform.up * presentDropShiftDistance;
-            present.GetComponent<Rigidbody>().velocity = transform.rotation * velocity;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 }
