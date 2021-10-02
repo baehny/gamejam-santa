@@ -5387,8 +5387,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7636030855049359154}
-  - component: {fileID: 7636030855049359155}
   - component: {fileID: 7636030855049359152}
+  - component: {fileID: 7636030855049359155}
+  - component: {fileID: 4859164207905639786}
+  - component: {fileID: 1421550717062793998}
+  - component: {fileID: 4725767634172575284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5412,24 +5415,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7636030855049359155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7636030855049359149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 840f6a425e2ad97419b1ef80387dcfa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinSpeed: 1
-  MaxSpeed: 10
-  PitchSpeed: 60
-  RollSpeed: 90
-  YawSpeed: 60
-  presentPrefab: {fileID: 4629354070369066962, guid: b69fae88d10f19444869a8b749f18775, type: 3}
 --- !u!65 &7636030855049359152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5443,6 +5428,68 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7636030855049359155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636030855049359149}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840f6a425e2ad97419b1ef80387dcfa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinSpeed: 1
+  MaxSpeed: 10
+  PitchSpeed: 60
+  RollSpeed: 90
+  YawSpeed: 60
+--- !u!114 &4859164207905639786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636030855049359149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f670de46e6f93f43854ee1864f24071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &1421550717062793998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636030855049359149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b0d7c5a480c8f4fb936d41a3846cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  presentPrefab: {fileID: 4629354070369066962, guid: b69fae88d10f19444869a8b749f18775, type: 3}
+--- !u!114 &4725767634172575284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636030855049359149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53e9cbb84bc8bf40b5045dbab0b78c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultVelocity: 10
+  BoostedVelocity: 50
+  Acceleration: 200
+  Decceleration: 200
+  YawSpeed: 60
+  MaxPitch: 20
+  PitchSpeed: 100
 --- !u!1 &7636030855140706057
 GameObject:
   m_ObjectHideFlags: 0
