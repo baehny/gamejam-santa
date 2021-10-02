@@ -6,16 +6,18 @@ public class GenerateWorld : MonoBehaviour
 {
     public GameObject houseTemplate;
     public Terrain terrain;
+    public float cellSize = 10;
+    public float gap = 3;
+    public float size = 1000;
 
     // Start is called before the first frame update
     void Start()
     {
-        float cellSize = 10;
-        float gap = 3;
+        int count = (int)(size / cellSize);
 
-        for (int x = 0; x < 100; x++)
+        for (int x = 0; x < count; x++)
         {
-            for (int z = 0; z < 100; z++)
+            for (int z = 0; z < count; z++)
             {
                 var position = new Vector3(
                     x * cellSize + Random.Range(gap, cellSize),
