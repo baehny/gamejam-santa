@@ -4,6 +4,6 @@
         "*.unity": "yaml",
         "*.meta": "yaml",
         "*.vsconfig": "json",
-        
+        "*.prefab": "yaml",
     }
 }
