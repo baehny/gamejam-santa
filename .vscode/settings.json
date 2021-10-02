@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.asset": "yaml",
+        "*.unity": "yaml",
+        "*.meta": "yaml",
+        "*.vsconfig": "json",
+        
+    }
+}
