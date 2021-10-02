@@ -8,8 +8,8 @@ public class StartupScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("UIScene");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame
