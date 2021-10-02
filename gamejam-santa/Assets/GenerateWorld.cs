@@ -36,8 +36,10 @@ public class GenerateWorld : MonoBehaviour
                 );
 
                 var duplicate = Instantiate(houseTemplate, transform);
-                duplicate.GetComponent<Transform>().localPosition = position;
-                duplicate.GetComponent<Transform>().localScale = scale;
+                var dupTransform = duplicate.GetComponent<Transform>();
+                dupTransform.localPosition = position;
+                dupTransform.localScale = scale;
+                dupTransform.localRotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.up);
                 duplicate.SetActive(true);
             }
         }
