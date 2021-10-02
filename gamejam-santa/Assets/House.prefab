@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: haus_georg_model
       objectReference: {fileID: 0}
+    - target: {fileID: 1117745001458953144, guid: 5010427af6993c84aa9786d9f853dd39, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dd5afb27ed3a1d449632adac092f0c2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5010427af6993c84aa9786d9f853dd39, type: 3}
 --- !u!1 &8676298170051780652 stripped
