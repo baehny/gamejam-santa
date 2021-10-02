@@ -10,6 +10,9 @@ public class GenerateWorld : MonoBehaviour
     public float gap = 3;
     public float size = 1000;
 
+    public Vector3 MinScale = Vector3.one * 0.5f;
+    public Vector3 MaxScale = Vector3.one * 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +28,16 @@ public class GenerateWorld : MonoBehaviour
                     z * cellSize + Random.Range(gap, cellSize));
                 position.y = terrain.SampleHeight(position);
 
-                var duplicate = Instantiate(houseTemplate);
-                duplicate.GetComponent<Transform>().position = position;
+
+                var scale = new Vector3(
+                    Random.Range(MinScale.x, MaxScale.x),
+                    Random.Range(MinScale.y, MaxScale.y),
+                    Random.Range(MinScale.z, MaxScale.z)
+                );
+
+                var duplicate = Instantiate(houseTemplate, transform);
+                duplicate.GetComponent<Transform>().localPosition = position;
+                duplicate.GetComponent<Transform>().localScale = scale;
                 duplicate.SetActive(true);
             }
         }
