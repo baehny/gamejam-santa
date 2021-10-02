@@ -5424,6 +5424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840f6a425e2ad97419b1ef80387dcfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinSpeed: 1
+  MaxSpeed: 10
+  PitchSpeed: 60
+  RollSpeed: 90
+  YawSpeed: 60
   presentPrefab: {fileID: 4629354070369066962, guid: b69fae88d10f19444869a8b749f18775, type: 3}
 --- !u!65 &7636030855049359152
 BoxCollider:
