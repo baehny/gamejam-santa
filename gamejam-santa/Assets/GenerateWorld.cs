@@ -5,13 +5,20 @@ using UnityEngine;
 public class GenerateWorld : MonoBehaviour
 {
     public GameObject houseTemplate;
+    public GameObject[] treeTemplates;
+
     public Terrain terrain;
     public float cellSize = 10;
     public float gap = 3;
     public float size = 1000;
 
+    public int treeSubcells = 5;
+
     public Vector3 MinScale = Vector3.one * 0.5f;
     public Vector3 MaxScale = Vector3.one * 1.5f;
+
+    public float globalHouseScaling = 1;
+    public float globalTreeScaling = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +29,15 @@ public class GenerateWorld : MonoBehaviour
         {
             for (int z = 0; z < count; z++)
             {
-                var position = new Vector3(
-                    x * cellSize + Random.Range(gap, cellSize),
+                var cellPosition = new Vector3(
+                    x * cellSize,
                     0,
-                    z * cellSize + Random.Range(gap, cellSize));
+                    z * cellSize);
+
+                var position = cellPosition + new Vector3(
+                    Random.Range(gap, cellSize),
+                    0,
+                    Random.Range(gap, cellSize));
                 position.y = terrain.SampleHeight(position);
 
 
@@ -33,23 +45,35 @@ public class GenerateWorld : MonoBehaviour
                     Random.Range(MinScale.x, MaxScale.x),
                     Random.Range(MinScale.y, MaxScale.y),
                     Random.Range(MinScale.z, MaxScale.z)
-                );
+                ) * globalHouseScaling;
 
-                var duplicate = Instantiate(houseTemplate, transform);
-                var dupTransform = duplicate.GetComponent<Transform>();
-                dupTransform.localPosition = position;
-                dupTransform.localScale = scale;
-                dupTransform.localRotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.up);
-                duplicate.SetActive(true);
+                var house = Instantiate(houseTemplate, transform);
+                house.transform.localPosition = position;
+                house.transform.localScale = scale;
+                house.transform.localRotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.up);
+                house.SetActive(true);
+
+
+                var treeCellSize = cellSize / treeSubcells;
+                var treeGap = gap / treeSubcells;
+                for (int tree_x = 0; tree_x < treeSubcells; tree_x++)
+                {
+                    for (int tree_z = 0; tree_z < treeSubcells; tree_z++)
+                    {
+                        var tree = Instantiate(treeTemplates[Random.Range(0, treeTemplates.Length)], transform);
+
+                        var treePos = cellPosition + new Vector3(
+                            tree_x * treeCellSize + Random.Range(treeGap, treeCellSize),
+                            0,
+                            tree_z * treeCellSize + Random.Range(treeGap, treeCellSize));
+                        treePos.y = terrain.SampleHeight(treePos);
+                        tree.transform.localPosition = treePos;
+
+                        tree.transform.localRotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.up);
+                        tree.transform.localScale = Vector3.one * globalTreeScaling;
+                    }
+                }
             }
         }
-
-        houseTemplate.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
