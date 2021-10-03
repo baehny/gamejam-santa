@@ -17,6 +17,8 @@ public class GameState : MonoBehaviour
 
     public float Timer { get; private set; } = (float)new TimeSpan(0, 1, 0).TotalSeconds;
 
+    public event EventHandler TimeIncreased;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,5 +40,6 @@ public class GameState : MonoBehaviour
     public void AddTime(float value)
     {
         Timer += value;
+        TimeIncreased?.Invoke(this, EventArgs.Empty);
     }
 }
