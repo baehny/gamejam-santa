@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MouseCameraController : MonoBehaviour
 {
-    Quaternion neutralRotation;
+    Quaternion neutralRotation = Quaternion.identity;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,6 @@ public class MouseCameraController : MonoBehaviour
         float resetTime = 0.1f;
 
         float lerpFactor = Math.Min(timeSinceMouseWasDown / resetTime, 1);
-
 
         this.GetComponent<Transform>().localRotation = neutralRotation * Quaternion.Lerp(mouseRotation, Quaternion.identity, lerpFactor);
     }

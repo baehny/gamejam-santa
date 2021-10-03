@@ -5,6 +5,9 @@ using UnityEngine;
 public class GenerateWorld : MonoBehaviour
 {
     public GameObject houseTemplate;
+    public GameObject hospitalTemplate;
+    public float hospitalFrequency = 0.01f;
+
     public GameObject[] treeTemplates;
 
     public Terrain terrain;
@@ -47,7 +50,10 @@ public class GenerateWorld : MonoBehaviour
                     Random.Range(MinScale.z, MaxScale.z)
                 ) * globalHouseScaling;
 
-                var house = Instantiate(houseTemplate, transform);
+                var isHospital = Random.Range(0.0f, 1.0f) < hospitalFrequency;
+                var template = isHospital ? hospitalTemplate : houseTemplate;
+
+                var house = Instantiate(template, transform);
                 house.transform.localPosition = position;
                 house.transform.localScale = scale;
                 house.transform.localRotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.up);

@@ -246,6 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseTemplate: {fileID: 4353064100917651398, guid: 80ddcef5e85e2cb42a723b5b4744e573, type: 3}
+  hospitalTemplate: {fileID: 1092632342527998504, guid: 7dfbf054e3671cc4ea143a47f96361af, type: 3}
+  hospitalFrequency: 0.01
   treeTemplates:
   - {fileID: 100000, guid: 136965f375a02394e9955a351cd015e4, type: 3}
   - {fileID: 122352, guid: 5edc51b46fc40044e8bba94ecb7a8a59, type: 3}

@@ -30,15 +30,15 @@ public class DropPresent : MonoBehaviour
 
     private void Drop()
     {
-        if (presentPrefab != null)
-        {
-            var velocity = this.GetComponent<Velocity>().velocity;
+        if (presentPrefab == null) return;
 
-            var present = Instantiate(presentPrefab);
-            present.transform.position = transform.position + -transform.up * presentDropShiftDistance;
-            present.transform.rotation = Random.rotation;
-            present.GetComponent<Rigidbody>().velocity = transform.rotation * velocity;
-            present.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.value + 0.5f, Random.value + 0.5f, Random.value + 0.5f);
-        }
+        var velocity = this.GetComponent<Velocity>().velocity;
+
+        var present = Instantiate(presentPrefab);
+        present.transform.position = transform.position + -transform.up * presentDropShiftDistance;
+        present.transform.rotation = Random.rotation;
+        present.GetComponent<Rigidbody>().velocity = transform.rotation * velocity;
+        present.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.value + 0.5f, Random.value + 0.5f, Random.value + 0.5f);
+
     }
 }

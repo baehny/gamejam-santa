@@ -21,7 +21,7 @@ class ScoreManager
     public void IncreaseScore(int value)
     {
         Score += value;
-        ScoreChanged.Invoke(this, Score);
+        ScoreChanged?.Invoke(this, Score);
     }
 
     public event EventHandler<int> ScoreChanged;
@@ -32,19 +32,13 @@ public class Present : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(this.gameObject, 20);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         var other = collision.gameObject;
-        if(other.TryGetComponent<PresentTargetComponent>(out var targetComponent))
+        if (other.TryGetComponent<PresentTargetComponent>(out var targetComponent))
         {
             ScoreManager.Instance.IncreaseScore(targetComponent.ScoreOnHit);
             GameObject.Destroy(this.gameObject);
