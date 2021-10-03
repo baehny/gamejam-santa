@@ -36,7 +36,9 @@ public class DropPresent : MonoBehaviour
 
             var present = Instantiate(presentPrefab);
             present.transform.position = transform.position + -transform.up * presentDropShiftDistance;
+            present.transform.rotation = Random.rotation;
             present.GetComponent<Rigidbody>().velocity = transform.rotation * velocity;
+            present.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.value + 0.5f, Random.value + 0.5f, Random.value + 0.5f);
         }
     }
 }

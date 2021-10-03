@@ -10,7 +10,8 @@ public class TimeObjective : MonoBehaviour
         {
             if (GameState.Instance != null)
             {
-                GameState.Instance.AddTime(60);
+                GameState.Instance.AddTime(15);
+                GameObject.Destroy(this.gameObject);
             }
         }
     }
