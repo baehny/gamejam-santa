@@ -246,12 +246,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseTemplate: {fileID: 4353064100917651398, guid: 80ddcef5e85e2cb42a723b5b4744e573, type: 3}
+  treeTemplates:
+  - {fileID: 100000, guid: 136965f375a02394e9955a351cd015e4, type: 3}
+  - {fileID: 122352, guid: 5edc51b46fc40044e8bba94ecb7a8a59, type: 3}
+  - {fileID: 113110, guid: 4cacccd5d9dccc34c8c6b23b442b88de, type: 3}
+  - {fileID: 100000, guid: fbf101430c1f09644b71110daa62bd5a, type: 3}
   terrain: {fileID: 1940367154}
-  cellSize: 10
-  gap: 3
+  cellSize: 50
+  gap: 5
   size: 1000
+  treeSubcells: 10
   MinScale: {x: 0.5, y: 0.5, z: 0.5}
   MaxScale: {x: 1.5, y: 1.5, z: 1.5}
+  globalHouseScaling: 3
+  globalTreeScaling: 2
 --- !u!4 &665920086
 Transform:
   m_ObjectHideFlags: 0
