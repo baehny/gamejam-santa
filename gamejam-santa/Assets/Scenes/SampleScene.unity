@@ -153,10 +153,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseTemplate: {fileID: 4353064100917651398, guid: 80ddcef5e85e2cb42a723b5b4744e573, type: 3}
+  treeTemplates:
+  - {fileID: 170394, guid: 72358273482fc7942a32f83cb45d7832, type: 3}
+  - {fileID: 100000, guid: b611804869ef7964e9d72c3ba3cb165d, type: 3}
+  - {fileID: 113110, guid: 4cacccd5d9dccc34c8c6b23b442b88de, type: 3}
+  - {fileID: 180442, guid: 41cf233c969e18546866273fc9605485, type: 3}
   terrain: {fileID: 1940367154}
-  cellSize: 10
+  cellSize: 30
   gap: 3
   size: 1000
+  treeSubcells: 5
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+  globalHouseScaling: 3
+  globalTreeScaling: 2
 --- !u!4 &665920086
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665920084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 635.66064, y: -463.2945, z: 504.55}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
